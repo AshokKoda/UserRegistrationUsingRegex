@@ -20,12 +20,22 @@ public class UserImplements implements IUser {
 			System.out.println("First name: " + fName + " is invalid.");
 		}
 
-		input.close();
-
 	}
 
+	// UC2 - Last name starts with caps and has minimum 3 characters.
 	public void validateLastName() {
-		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter last name: ");
+		String lName = input.nextLine();
+
+		String regex = "^[A-Z][a-zA-Z]{2,}$";
+		Pattern pattern = Pattern.compile(regex);
+
+		if (pattern.matcher(lName).matches()) {
+			System.out.println("Last name: " + lName + " is valid.");
+		} else {
+			System.out.println("Last name: " + lName + " is invalid.");
+		}
 
 	}
 
