@@ -50,19 +50,4 @@ public class UserRegistrationTest {
 		}
 
 	}
-
-	// UC4 - Need to validate mobile number example: 91 9919819801.
-	@Test
-	public void validateMobileNumberTest() {
-		String regex = "^(91[ ])?[6-9]\\d{9}$";
-		Pattern pattern = Pattern.compile(regex);
-		String mobile = "91 9919819801";
-
-		if (pattern.matcher(mobile).matches()) {
-			System.out.println("Mobile No: " + mobile + " is valid.");
-		} else {
-			System.out.println("Mobile No: " + mobile + " is invalid.");
-		}
-
-	}
 }
