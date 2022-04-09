@@ -5,11 +5,14 @@ import java.util.regex.Pattern;
 
 public class UserImplements implements IUser {
 
+	Scanner fNameInput = new Scanner(System.in);
+	Scanner lNameInput = new Scanner(System.in);
+	Scanner emailInput = new Scanner(System.in);
+
 	// UC1 - First name starts with caps and has minimum 3 characters.
 	public void validateFirstName() {
-		Scanner input = new Scanner(System.in);
 		System.out.println("Enter first name: ");
-		String fName = input.nextLine();
+		String fName = fNameInput.nextLine();
 
 		String regex = "^[A-Z][a-zA-Z]{2,}$";
 		Pattern pattern = Pattern.compile(regex);
@@ -24,9 +27,8 @@ public class UserImplements implements IUser {
 
 	// UC2 - Last name starts with caps and has minimum 3 characters.
 	public void validateLastName() {
-		Scanner input = new Scanner(System.in);
 		System.out.println("Enter last name: ");
-		String lName = input.nextLine();
+		String lName = lNameInput.nextLine();
 
 		String regex = "^[A-Z][a-zA-Z]{2,}$";
 		Pattern pattern = Pattern.compile(regex);
@@ -39,8 +41,18 @@ public class UserImplements implements IUser {
 
 	}
 
+	// UC3 - Need to validate email.
 	public void validateEmail() {
-		// TODO Auto-generated method stub
+		System.out.println("Enter email: ");
+		String email = emailInput.nextLine();
+
+		String regex = "^[a-z0-9]{1,20}([_.+-][a-z0-9]+)?@[a-z0-9]+.[a-z]{2,3}(.[a-z]{2})?$";
+		Pattern pattern = Pattern.compile(regex);
+		if (pattern.matcher(email).matches()) {
+			System.out.println("Email: " + email + " is valid.");
+		} else {
+			System.out.println("Email: " + email + " is invalid.");
+		}
 
 	}
 
@@ -58,5 +70,4 @@ public class UserImplements implements IUser {
 		// TODO Auto-generated method stub
 
 	}
-
 }

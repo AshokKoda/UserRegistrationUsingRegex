@@ -35,4 +35,19 @@ public class UserRegistrationTest {
 		}
 
 	}
+
+	// UC3 - Need to validate email.
+	@Test
+	public void validateEmailTest() {
+		String regex = "^[a-z0-9]{1,20}([_.+-][a-z0-9]+)?@[a-z0-9]+.[a-z]{2,3}(.[a-z]{2})?$";
+		Pattern pattern = Pattern.compile(regex);
+		String email = "abc-100@abc.net";
+
+		if (pattern.matcher(email).matches()) {
+			System.out.println("Email: " + email + " is valid.");
+		} else {
+			System.out.println("Email: " + email + " is invalid.");
+		}
+
+	}
 }

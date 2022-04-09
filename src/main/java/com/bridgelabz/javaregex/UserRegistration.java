@@ -10,6 +10,8 @@ public class UserRegistration {
 		System.out.println("<--------------------------------------->");
 		user.validateLastName();
 		System.out.println("<--------------------------------------->");
+		user.validateEmail();
+		System.out.println("<--------------------------------------->");
 
 	}
 
