@@ -59,7 +59,16 @@ public class UserImplements implements IUser {
 
 	// UC4 - Need to validate mobile number example: 91 9919819801.
 	public void validateMobileNumber() {
-		
+		System.out.println("Enter mobile no: ");
+		String mobile = mobileInput.nextLine();
+
+		String regex = "^(91[ ])?[6-9]\\d{9}$";
+		Pattern pattern = Pattern.compile(regex);
+		if (pattern.matcher(mobile).matches()) {
+			System.out.println("Mobile No: " + mobile + " is valid.");
+		} else {
+			System.out.println("Mobile No: " + mobile + " is invalid.");
+		}
 
 	}
 
