@@ -94,8 +94,13 @@ public class UserImplements implements IUser {
 
 	}
 
-	public void clearAllEmailSamples() {
-		// TODO Auto-generated method stub
+	public boolean clearAllEmailSamples(String parameters) {
+		String regex = "^[a-z0-9]{1,20}([_.+-][a-z0-9]+)?@[a-z0-9]+.[a-z]{2,3}(.[a-z]{2})?$";
+		Pattern pattern = Pattern.compile(regex);
+		if (pattern.matcher(parameters).matches()) {
+			return true;
+		}
+		return false;
 
 	}
 }
