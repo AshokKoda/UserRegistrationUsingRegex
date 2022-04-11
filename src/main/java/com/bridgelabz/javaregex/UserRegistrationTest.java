@@ -65,4 +65,19 @@ public class UserRegistrationTest {
 		}
 
 	}
+
+	// UC5 - Password rule - 1: Minimum 8 characters
+	@Test
+	public void validatePasswordRule1() {
+		String regex = "^[a-zA-z0-9!@#$%^&*()?]{8}$";
+		Pattern pattern = Pattern.compile(regex);
+		String password = "ashok123";
+
+		if (pattern.matcher(password).matches()) {
+			System.out.println("Password: " + password + " is valid.");
+		} else {
+			System.out.println("Password: " + password + " is invalid.");
+		}
+
+	}
 }

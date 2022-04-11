@@ -9,6 +9,7 @@ public class UserImplements implements IUser {
 	Scanner lNameInput = new Scanner(System.in);
 	Scanner emailInput = new Scanner(System.in);
 	Scanner mobileInput = new Scanner(System.in);
+	Scanner passwordInput = new Scanner(System.in);
 
 	// UC1 - First name starts with caps and has minimum 3 characters.
 	public void validateFirstName() {
@@ -72,8 +73,18 @@ public class UserImplements implements IUser {
 
 	}
 
+	// UC5 - Password rule - 1: Minimum 8 characters
 	public void validatePassword() {
-		// TODO Auto-generated method stub
+		System.out.println("Enter password: ");
+		String password = passwordInput.nextLine();
+
+		String regex = "^[a-zA-z0-9!@#$%^&*()?]{8,}$";
+		Pattern pattern = Pattern.compile(regex);
+		if (pattern.matcher(password).matches()) {
+			System.out.println("Password: " + password + " is valid.");
+		} else {
+			System.out.println("Password: " + password + " is invalid.");
+		}
 
 	}
 
