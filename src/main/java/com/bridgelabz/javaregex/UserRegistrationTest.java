@@ -67,11 +67,13 @@ public class UserRegistrationTest {
 	}
 
 	// UC5 - Password rule - 1: Minimum 8 characters
+	// UC6 - Password rule - 2: Starts with Upper case
 	@Test
 	public void validatePasswordRule1() {
-		String regex = "^[a-zA-z0-9!@#$%^&*()?]{8}$";
+		// String regex = "^[a-zA-z0-9!@#$%^&*()?]{8,}$"; //UC5
+		String regex = "(?=.*[A-Z])[a-zA-Z0-9@#$%^&*()]{8,}$"; //UC6
 		Pattern pattern = Pattern.compile(regex);
-		String password = "ashok123";
+		String password = "Ashok123";
 
 		if (pattern.matcher(password).matches()) {
 			System.out.println("Password: " + password + " is valid.");
